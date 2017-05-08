@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_set_edited_item_str"
-        tools:layout_editor_absoluteX="278dp"
-        tools:layout_editor_absoluteY="96dp" />
+        android:layout_below="@+id/et_edit_item"
+        android:layout_alignEnd="@+id/et_edit_item"
+        android:layout_marginTop="22dp" />
 </RelativeLayout>
