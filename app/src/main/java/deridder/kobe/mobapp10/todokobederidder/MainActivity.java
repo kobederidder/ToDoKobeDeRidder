@@ -1,6 +1,7 @@
 package deridder.kobe.mobapp10.todokobederidder;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,8 +17,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     Button btnAdd, btnEdit;
     ListView lvToDoList;
-
-
     List<String> listItems;
 
 
@@ -26,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final AlertDialog.Builder AddItemAlert = new AlertDialog.Builder(this);
-        final EditText edittext = new EditText(this);
 
         btnAdd = (Button) findViewById(R.id.btn_new_item);
         btnEdit = (Button) findViewById(R.id.btn_edit_item);
@@ -42,31 +39,21 @@ public class MainActivity extends AppCompatActivity {
 
         lvToDoList.setAdapter(arrayAdapter);
 
-        AddItemAlert.setMessage("Task description");
-        AddItemAlert.setTitle("Add");
 
-        AddItemAlert.setView(edittext);
-
-        AddItemAlert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String NewItemText = edittext.getText().toString();
-                listItems.add(NewItemText);
-
-
-            }
-        });
-
-        AddItemAlert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-
-            }
-        });
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            AddItemAlert.getContext();
+                Intent intent = new Intent(getApplicationContext(), AddItemActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), EditItemActivity.class);
+                startActivity(intent);
             }
         });
 
