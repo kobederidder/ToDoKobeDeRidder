@@ -5,11 +5,27 @@ package deridder.kobe.mobapp10.todokobederidder;
  */
 
 public class ToDoItem {
-    int _id;
+    int id = 0;
     String name;
 
-    public ToDoItem(int _id, String name) {
-        this._id = _id;
+    public ToDoItem(String name) {
+        this.id++;
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 }

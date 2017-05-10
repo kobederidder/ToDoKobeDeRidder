@@ -18,5 +18,13 @@ public class ToDoList {
         return ourInstance;
     }
 
+    public void addItem(String s) {
+        toDoList.add(new ToDoItem(s));
+    }
+
+    public List getList() {
+        return toDoList;
+    }
+
 
 }

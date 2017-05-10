@@ -22,6 +22,7 @@ public class AddItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                ToDoList.getInstance().addItem(etAddItem.getText().toString());
                 startActivity(intent);
             }
         });

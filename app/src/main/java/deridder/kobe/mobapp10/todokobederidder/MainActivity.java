@@ -1,5 +1,6 @@
 package deridder.kobe.mobapp10.todokobederidder;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -30,14 +31,10 @@ public class MainActivity extends AppCompatActivity {
         btnEdit = (Button) findViewById(R.id.btn_edit_item);
         lvToDoList = (ListView) findViewById(R.id.lv_todo_list);
 
-        listItems = new ArrayList<>();
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                listItems );
+        Adapter adapter = new Adapter(this, ToDoList.getInstance().getList());
 
-        lvToDoList.setAdapter(arrayAdapter);
+        lvToDoList.setAdapter(adapter);
 
 
 
